@@ -1,17 +1,19 @@
 <template>
   <h1>{{ category.name }}</h1>
-  <div class="col-full">
-    <CategoryListItem :category="category" />
-  </div>
+  <ForumList
+    :title="category.name"
+    :forums="getForumsForCategory(category)"
+  />
 </template>
 
 <script>
-import CategoryListItem from '../components/CategoryListItem'
+import ForumList from '../components/ForumList.vue'
 import sourceData from '@/data.json'
+
 export default {
   name: 'Category',
   components: {
-    CategoryListItem
+    ForumList
   },
   props: {
     id: {
@@ -27,6 +29,11 @@ export default {
   computed: {
     category () {
       return this.categories.find(({ id }) => id === this.id)
+    }
+  },
+  methods: {
+    getForumsForCategory (category) {
+      return sourceData.forums.filter(({ categoryId }) => categoryId === category.id)
     }
   }
 }
