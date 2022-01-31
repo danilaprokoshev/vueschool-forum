@@ -4,16 +4,14 @@
 </template>
 
 <script>
-import sourceData from '@/data.json'
 import CategoryList from '../components/CategoryList.vue'
 export default {
   components: {
     CategoryList
   },
-  data () {
-    return {
-      categories: sourceData.categories,
-      forums: sourceData.forums
+  computed: {
+    categories () {
+      return this.$store.state.categories
     }
   }
 }
