@@ -4,10 +4,6 @@
     <p class="text-center">
       <img :src="user.avatar"
            class="avatar-xlarge img-update">
-      <img :src="user.avatar"
-           class="avatar-xlarge img-update"
-           alt=""
-      >
     </p>
 
     <div class="form-group">
